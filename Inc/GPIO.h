@@ -2,7 +2,7 @@
  * GPIO.h
  *
  *  Created on: Feb 10, 2023
- *      Author: yunus
+ *      Author: Yunus ÖZDEMİR
  */
 
 #ifndef GPIO_H_
