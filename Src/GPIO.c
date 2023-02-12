@@ -11,11 +11,10 @@
 
 
 
-
 void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
 
 	if (GPIOx == GPIOA){
-		GPIOA_CLK_EN; //GPIOA PERIPHERAL CLOCK ENABLE
+		GPIOA_CLK_EN(); //GPIOA PERIPHERAL CLOCK ENABLE
 		if (GPIO_CONFIG->PinMode == AltFuncMode){
 			if (GPIO_CONFIG->Alternate < 8){
 				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
@@ -34,7 +33,7 @@ void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
 
 /***********************************************************************************/
 	if (GPIOx == GPIOB){
-		GPIOB_CLK_EN; //GPIOB PERIPHERAL CLOCK ENABLE
+		GPIOB_CLK_EN(); //GPIOB PERIPHERAL CLOCK ENABLE
 		if (GPIO_CONFIG->PinMode == AltFuncMode){
 			if (GPIO_CONFIG->Alternate < 8){
 				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
@@ -52,7 +51,7 @@ void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
 	}
 /***********************************************************************************/
 	if (GPIOx == GPIOC){
-		GPIOC_CLK_EN; //GPIOC PERIPHERAL CLOCK ENABLE
+		GPIOC_CLK_EN(); //GPIOC PERIPHERAL CLOCK ENABLE
 		if (GPIO_CONFIG->PinMode == AltFuncMode){
 			if (GPIO_CONFIG->Alternate < 8){
 				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
@@ -70,7 +69,7 @@ void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
 	}
 /***********************************************************************************/
 	if (GPIOx == GPIOD){
-		GPIOD_CLK_EN; //GPIOD PERIPHERAL CLOCK ENABLE
+		GPIOD_CLK_EN(); //GPIOD PERIPHERAL CLOCK ENABLE
 		if (GPIO_CONFIG->PinMode == AltFuncMode){
 			if (GPIO_CONFIG->Alternate < 8){
 				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
@@ -88,7 +87,7 @@ void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
 	}
 /***********************************************************************************/
 	if (GPIOx == GPIOE){
-		GPIOE_CLK_EN; //GPIOE PERIPHERAL CLOCK ENABLE
+		GPIOE_CLK_EN(); //GPIOE PERIPHERAL CLOCK ENABLE
 		if (GPIO_CONFIG->PinMode == AltFuncMode){
 			if (GPIO_CONFIG->Alternate < 8){
 				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
@@ -106,7 +105,7 @@ void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
 		}
 /***********************************************************************************/
 	if (GPIOx == GPIOH){
-		GPIOH_CLK_EN; //GPIOH PERIPHERAL CLOCK ENABLE
+		GPIOH_CLK_EN(); //GPIOH PERIPHERAL CLOCK ENABLE
 		if (GPIO_CONFIG->PinMode == AltFuncMode){
 			if (GPIO_CONFIG->Alternate < 8){
 				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
