@@ -11,7 +11,7 @@
 
 
 
-void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
+void GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
 
 	if (GPIOx == GPIOA){
 		GPIOA_CLK_EN(); //GPIOA PERIPHERAL CLOCK ENABLE
@@ -123,3 +123,37 @@ void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
 	}
 
 }
+
+
+void GPIO_DeInit(GPIO_TypeDef *GPIOx){
+
+	RCC_AHB1ENR_t DisablePorts;
+
+	if(GPIOx == GPIOA){
+		DisablePorts.GPIOAEN = DISABLE;
+		RCC->AHB1ENR = DisablePorts.RCC_AHB1ENR;
+	}
+	else if (GPIOx == GPIOB){
+		DisablePorts.GPIOBEN = DISABLE;
+		RCC->AHB1ENR = DisablePorts.RCC_AHB1ENR;
+	}
+	else if (GPIOx == GPIOC){
+		DisablePorts.GPIOCEN = DISABLE;
+		RCC->AHB1ENR = DisablePorts.RCC_AHB1ENR;
+	}
+	else if (GPIOx == GPIOD){
+		DisablePorts.GPIODEN = DISABLE;
+		RCC->AHB1ENR = DisablePorts.RCC_AHB1ENR;
+	}
+	else if (GPIOx == GPIOE){
+		DisablePorts.GPIOEEN = DISABLE;
+		RCC->AHB1ENR = DisablePorts.RCC_AHB1ENR;
+	}
+	else if (GPIOx == GPIOH){
+		DisablePorts.GPIOHEN = DISABLE;
+		RCC->AHB1ENR = DisablePorts.RCC_AHB1ENR;
+	}
+
+}
+
+

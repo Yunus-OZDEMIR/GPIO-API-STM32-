@@ -8,6 +8,8 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
+#include "stm32f401xe.h"
+#include "RCC.h"
 
 typedef struct{
 	uint8_t PinNumber;
@@ -91,17 +93,12 @@ typedef struct{
  * GPIO PORTS
  */
 
-#define GPIO_PORTA			0;
-#define GPIO_PORTB			1;
-#define GPIO_PORTC			2;
-#define GPIO_PORTD			3;
-#define GPIO_PORTE			4;
-#define GPIO_PORTH			5;
 
 
 
-void GPIO_INIT(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG);
 
+void GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG);
+void GPIO_DeInit(GPIO_TypeDef *GPIOx);
 
 
 
