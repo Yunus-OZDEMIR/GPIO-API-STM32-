@@ -164,8 +164,24 @@ uint8_t GPIO_READ(GPIO_TypeDef *GPIOx, uint8_t PinNumber){
 		ReadBit = ((GPIOA->IDR >> PinNumber) & 0x00000001);
 	}
 
+	else if (GPIOx == GPIOB){
+		ReadBit = ((GPIOx->IDR >> PinNumber) & 0x00000001);
+	}
+	else if (GPIOx == GPIOC){
+		ReadBit = ((GPIOx->IDR >> PinNumber) & 0x00000001);
+	}
+	else if (GPIOx == GPIOD){
+		ReadBit = ((GPIOx->IDR >> PinNumber) & 0x00000001);
+	}
+	else if (GPIOx == GPIOE){
+		ReadBit = ((GPIOx->IDR >> PinNumber) & 0x00000001);
+	}
+	else if (GPIOx == GPIOH){
+		ReadBit = ((GPIOx->IDR >> PinNumber) & 0x00000001);
+	}
 
 	return ReadBit;
-
 }
+
+
 
