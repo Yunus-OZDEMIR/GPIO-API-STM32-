@@ -157,3 +157,15 @@ void GPIO_DeInit(GPIO_TypeDef *GPIOx){
 }
 
 
+uint8_t GPIO_READ(GPIO_TypeDef *GPIOx, uint8_t PinNumber){
+
+	uint8_t ReadBit = 0;
+	if (GPIOx == GPIOA){
+		ReadBit = ((GPIOA->IDR >> PinNumber) & 0x00000001);
+	}
+
+
+	return ReadBit;
+
+}
+
