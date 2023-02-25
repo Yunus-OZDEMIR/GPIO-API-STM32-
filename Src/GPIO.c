@@ -157,3 +157,18 @@ void GPIO_DeInit(GPIO_TypeDef *GPIOx){
 }
 
 
+<<<<<<< Updated upstream
+=======
+uint8_t GPIO_READ(GPIO_TypeDef *GPIOx, uint8_t PinNumber){
+	return ((GPIOx->IDR >> PinNumber) & 0x00000001);
+}
+
+void GPIO_WRITE(GPIO_TypeDef *GPIOx, uint8_t PinNumber,uint8_t Output){
+
+	GPIOx->ODR |= (Output<<Pin)
+}
+
+
+
+
+>>>>>>> Stashed changes
