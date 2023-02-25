@@ -12,115 +12,26 @@
 
 
 void GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
+	if (GPIOx == GPIOA)GPIOA_CLK_EN();
+	if (GPIOx == GPIOB)GPIOB_CLK_EN();
+	if (GPIOx == GPIOC)GPIOC_CLK_EN();
+	if (GPIOx == GPIOD)GPIOD_CLK_EN();
+	if (GPIOx == GPIOE)GPIOE_CLK_EN();
+	if (GPIOx == GPIOH)GPIOH_CLK_EN();
 
-	if (GPIOx == GPIOA){
-		GPIOA_CLK_EN(); //GPIOA PERIPHERAL CLOCK ENABLE
-		if (GPIO_CONFIG->PinMode == AltFuncMode){
-			if (GPIO_CONFIG->Alternate < 8){
-				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
-			}
-			else{
-				GPIOA->AFR[1] |= GPIO_CONFIG->Alternate;
-			}
+	if (GPIO_CONFIG->PinMode == AltFuncMode){
+		if (GPIO_CONFIG->Alternate < 8){
+			GPIOx->AFR[0] |= GPIO_CONFIG->Alternate;
 		}
-
-		GPIOx->MODER 	|= (GPIO_CONFIG->PinMode)    <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
-		GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
-
+		else{
+			GPIOx->AFR[1] |= GPIO_CONFIG->Alternate;
+		}
 	}
 
-/***********************************************************************************/
-	if (GPIOx == GPIOB){
-		GPIOB_CLK_EN(); //GPIOB PERIPHERAL CLOCK ENABLE
-		if (GPIO_CONFIG->PinMode == AltFuncMode){
-			if (GPIO_CONFIG->Alternate < 8){
-				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
-			}
-			else{
-				GPIOA->AFR[1] |= GPIO_CONFIG->Alternate;
-			}
-		}
-
-		GPIOx->MODER 	|= (GPIO_CONFIG->PinMode)    <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
-		GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
-
-	}
-/***********************************************************************************/
-	if (GPIOx == GPIOC){
-		GPIOC_CLK_EN(); //GPIOC PERIPHERAL CLOCK ENABLE
-		if (GPIO_CONFIG->PinMode == AltFuncMode){
-			if (GPIO_CONFIG->Alternate < 8){
-				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
-			}
-			else{
-				GPIOA->AFR[1] |= GPIO_CONFIG->Alternate;
-			}
-		}
-
-		GPIOx->MODER 	|= (GPIO_CONFIG->PinMode)    <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
-		GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
-
-	}
-/***********************************************************************************/
-	if (GPIOx == GPIOD){
-		GPIOD_CLK_EN(); //GPIOD PERIPHERAL CLOCK ENABLE
-		if (GPIO_CONFIG->PinMode == AltFuncMode){
-			if (GPIO_CONFIG->Alternate < 8){
-				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
-			}
-			else{
-				GPIOA->AFR[1] |= GPIO_CONFIG->Alternate;
-			}
-		}
-
-		GPIOx->MODER 	|= (GPIO_CONFIG->PinMode)    <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
-		GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
-
-	}
-/***********************************************************************************/
-	if (GPIOx == GPIOE){
-		GPIOE_CLK_EN(); //GPIOE PERIPHERAL CLOCK ENABLE
-		if (GPIO_CONFIG->PinMode == AltFuncMode){
-			if (GPIO_CONFIG->Alternate < 8){
-				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
-			}
-			else{
-				GPIOA->AFR[1] |= GPIO_CONFIG->Alternate;
-			}
-		}
-
-		GPIOx->MODER 	|= (GPIO_CONFIG->PinMode)    <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
-		GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
-
-		}
-/***********************************************************************************/
-	if (GPIOx == GPIOH){
-		GPIOH_CLK_EN(); //GPIOH PERIPHERAL CLOCK ENABLE
-		if (GPIO_CONFIG->PinMode == AltFuncMode){
-			if (GPIO_CONFIG->Alternate < 8){
-				GPIOA->AFR[0] |= GPIO_CONFIG->Alternate;
-			}
-			else{
-				GPIOA->AFR[1] |= GPIO_CONFIG->Alternate;
-			}
-		}
-
-		GPIOx->MODER 	|= (GPIO_CONFIG->PinMode)    <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
-		GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
-		GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
-
-	}
+	GPIOx->MODER 	|= (GPIO_CONFIG->PinMode)    <<  (2*(GPIO_CONFIG->PinNumber));
+	GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
+	GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
+	GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
 
 }
 
@@ -157,18 +68,16 @@ void GPIO_DeInit(GPIO_TypeDef *GPIOx){
 }
 
 
-<<<<<<< Updated upstream
-=======
+
 uint8_t GPIO_READ(GPIO_TypeDef *GPIOx, uint8_t PinNumber){
 	return ((GPIOx->IDR >> PinNumber) & 0x00000001);
 }
 
 void GPIO_WRITE(GPIO_TypeDef *GPIOx, uint8_t PinNumber,uint8_t Output){
-
-	GPIOx->ODR |= (Output<<Pin)
+	GPIOx->ODR |= (Output<<PinNumber);
 }
 
 
 
 
->>>>>>> Stashed changes
+
