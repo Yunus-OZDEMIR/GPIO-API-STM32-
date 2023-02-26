@@ -100,6 +100,6 @@ typedef struct{
 void GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG);
 void GPIO_DeInit(GPIO_TypeDef *GPIOx);
 void GPIO_WRITE(GPIO_TypeDef *GPIOx, uint8_t PinNumber,uint8_t Output);
-
+void GPIO_TOGGLE(GPIO_TypeDef *GPIOx, uint8_t PinNumber);
 
 #endif /* GPIO_H_ */

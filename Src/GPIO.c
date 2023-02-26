@@ -77,6 +77,9 @@ void GPIO_WRITE(GPIO_TypeDef *GPIOx, uint8_t PinNumber,uint8_t Output){
 	GPIOx->ODR |= (Output<<PinNumber);
 }
 
+void GPIO_TOGGLE(GPIO_TypeDef *GPIOx, uint8_t PinNumber){
+	GPIOx->ODR ^= (1<<PinNumber);
+}
 
 
 
