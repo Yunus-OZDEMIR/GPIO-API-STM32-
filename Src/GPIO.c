@@ -9,29 +9,29 @@
 #include "GPIO.h"
 #include "RCC.h"
 
-
-
 void GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_CONFIG_t *GPIO_CONFIG){
-	if (GPIOx == GPIOA)GPIOA_CLK_EN();
-	if (GPIOx == GPIOB)GPIOB_CLK_EN();
-	if (GPIOx == GPIOC)GPIOC_CLK_EN();
-	if (GPIOx == GPIOD)GPIOD_CLK_EN();
-	if (GPIOx == GPIOE)GPIOE_CLK_EN();
-	if (GPIOx == GPIOH)GPIOH_CLK_EN();
+		 if (GPIOx == GPIOA)GPIOA_CLK_EN();
+	else if (GPIOx == GPIOB)GPIOB_CLK_EN();
+	else if (GPIOx == GPIOC)GPIOC_CLK_EN();
+	else if (GPIOx == GPIOD)GPIOD_CLK_EN();
+	else if (GPIOx == GPIOE)GPIOE_CLK_EN();
+	else if (GPIOx == GPIOH)GPIOH_CLK_EN();
+
+	GPIOx->MODER 	|= (GPIO_CONFIG->PinMode 	 <<2*(GPIO_CONFIG->PinNumber));
+	GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
+	GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
+	GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
 
 	if (GPIO_CONFIG->PinMode == AltFuncMode){
 		if (GPIO_CONFIG->Alternate < 8){
-			GPIOx->AFR[0] |= GPIO_CONFIG->Alternate;
+			GPIOx->AFR[0] |= ((GPIO_CONFIG->Alternate)<<4*(GPIO_CONFIG->PinNumber));
 		}
 		else{
 			GPIOx->AFR[1] |= GPIO_CONFIG->Alternate;
 		}
 	}
 
-	GPIOx->MODER 	|= (GPIO_CONFIG->PinMode)    <<  (2*(GPIO_CONFIG->PinNumber));
-	GPIOx->OSPEEDR  |= (GPIO_CONFIG->Speed)      <<  (2*(GPIO_CONFIG->PinNumber));
-	GPIOx->OTYPER   |= (GPIO_CONFIG->OutputType) <<  (GPIO_CONFIG->PinNumber);
-	GPIOx->PUPDR    |= (GPIO_CONFIG->Pull)       <<  (2*(GPIO_CONFIG->PinNumber));
+
 
 }
 

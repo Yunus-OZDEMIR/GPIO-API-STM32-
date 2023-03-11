@@ -23,71 +23,73 @@ typedef struct{
 /*
  * GPIOx_MODER
  */
-#define InputMode			0x00
-#define OutputMode			0x01
-#define AltFuncMode			0x10
-#define AnalogMode			0x11
+#define InputMode			0
+#define OutputMode			1
+#define AltFuncMode			2
+#define AnalogMode			3
 /*
  * GPIOx_OTYPER
  */
-#define PushPull			0x00 //reset state
-#define OpenDrain			0x01
+#define PushPull			0
+#define OpenDrain			1
 
 /*
  * GPIOx_OSPEEDR)
  */
-#define LowSpeed			0x00
-#define	MediumSpeed			0x01
-#define	HighSpeed			0x10
-#define	VeryHighSpeed		0x10
+#define LowSpeed			0
+#define	MediumSpeed			1
+#define	HighSpeed			2
+#define	VeryHighSpeed		3
 
 /*
  * GPIOx_PUPDR
  */
-#define	NoPuPd				0x00
-#define	PullUp				0x01
-#define	PullDown			0x10
+#define	NoPuPd				0
+#define	PullUp				1
+#define	PullDown			2
 
 /*
  * GPIOx_AFRL
  */
-#define AFL_0				0x0000
-#define AFL_1				0x0001
-#define AFL_2				0x0010
-#define AFL_3				0x0011
-#define AFL_4				0x0100
-#define AFL_5				0x0101
-#define AFL_6				0x0110
-#define AFL_7				0x0111
-#define AFL_8				0x1000
-#define AFL_9				0x1001
-#define AFL_10				0x1010
-#define AFL_11				0x1011
-#define AFL_12				0x1100
-#define AFL_13				0x1101
-#define AFL_14				0x1110
-#define AFL_15				0x1111
+#define AF_0				0
+#define AF_1				1
+#define AF_2				2
+#define AF_3				3
+#define AF_4				4
+#define AF_5				5
+#define AF_6				6
+#define AF_7				7
+#define AF_8				8
+#define AF_9				9
+#define AF_10				10
+#define AF_11				11
+#define AF_12				12
+#define AF_13				13
+#define AF_14				14
+#define AF_15				15
+
+
 
 /*
- * GPIOx_AFRH
+ * PinNumber
  */
-#define NoAltFunc			0x0000
-#define AFH_0				0x0000
-#define AFH_1				0x0001
-#define AFH_2				0x0010
-#define AFH_3				0x0011
-#define AFH_4				0x0100
-#define AFH_5				0x0101
-#define AFH_6				0x0110
-#define AFH_7				0x0111
-#define AFH_8				0x1000
-#define AFH_9				0x1001
-#define AFH_10				0x1010
-#define AFH_11				0x1011
-#define AFH_12				0x1100
-#define AFH_13				0x1101
-#define AFH_14				0x1110
-#define AFH_15				0x1111
+
+#define PinNumber_0		    0
+#define PinNumber_1		    1
+#define PinNumber_2		    2
+#define PinNumber_3		    3
+#define PinNumber_4		    4
+#define PinNumber_5		    5
+#define PinNumber_6		    6
+#define PinNumber_7		    7
+#define PinNumber_8		    8
+#define PinNumber_9		    9
+#define PinNumber_10	    10
+#define PinNumber_11	    11
+#define PinNumber_12	    12
+#define PinNumber_13	    13
+#define PinNumber_14	    14
+#define PinNumber_15	    15
 
 /*
  * GPIO PORTS
